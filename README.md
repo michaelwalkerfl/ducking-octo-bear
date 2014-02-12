@@ -1,1 +1,3 @@
-Pip install flask, flask-wtf, flask-mail and dataset...
+# ducking-octo-bear
+Install dependencies with `pip install -r requirements.txt` and `python
+app.py` to run!
