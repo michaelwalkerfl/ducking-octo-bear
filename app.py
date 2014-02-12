@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 from flask import Flask, render_template, request, flash
 from forms import ContactForm, Unsubscribe
 from flask_mail import Mail, Message
@@ -10,8 +11,8 @@ app = Flask(__name__)
 app.secret_key = '9sef7s98fe79se8f7s9e8f98fh7fgj98f'
 
 app.config["MAIL_SERVER"] = 'smtp.gmail.com'
-app.config["MAIL_PORT"] = 465 
-app.config["MAIL_USE_SSL"] = True 
+app.config["MAIL_PORT"] = 465
+app.config["MAIL_USE_SSL"] = True
 app.config["MAIL_USERNAME"] = 'your@gmail.com'
 app.config["MAIL_PASSWORD"] = 'yourpassword'
 
@@ -41,9 +42,9 @@ def contact():
             From: %s <%s>
             %s
             """ % (form.name.data, form.email.data, form.message.data)
-            mail.send(msg)              
-   
-            return render_template('contact.html', success=True) 
+            mail.send(msg)
+
+            return render_template('contact.html', success=True)
 
     elif request.method == 'GET':
         return render_template('contact.html', form=form)
