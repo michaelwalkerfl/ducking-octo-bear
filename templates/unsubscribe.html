@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+  {% for message in get_flashed_messages() %}
+    <div class="flash">{{ message }}</div>
+  {% endfor %}
+
+  <h4>Please submit the email address that you wish to be unsubscribed.</h4>
+  <form action="{{ url_for('unsubscribe') }}" method=post>
+    {{ form.hidden_tag() }}
+
+    {{ form.email.label }}
+    {{ form.email }}
+
+    {{ form.submit }}
+  </form>
+{% endblock %}
+
+
