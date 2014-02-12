@@ -8,7 +8,7 @@
 
     <header>
       <div class="container">
-        <h1 class="logo">AutoPilot Income</h1>
+        <img src="{{ url_for('static', filename='img/logo.png') }}" align=left>
         <strong><nav>
           <ul class="menu">
            <li><a href="{{ url_for('home') }}">Home</a></li>
@@ -23,6 +23,12 @@
       {% block content %}
       {% endblock %}
     </div>
+  
+  <ul class="footer">
+    <li>All Rights Reserved &copy; 2014 - ePays.net</li>
+    <li><a href="{{ url_for('privacy') }}">Privacy</a></li>
+    <li><a href="{{ url_for('unsubscribe') }}">Unsubscribe</a></li>
+  </div>
 
   </body>
 </html>
