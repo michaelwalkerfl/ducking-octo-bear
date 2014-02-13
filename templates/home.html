@@ -1,7 +1,40 @@
 {% extends "layout.html" %}
+
 {% block content %}
   <div class="jumbo">
     <h2>Welcome to ePays.</h2>
     <h3>Where you will learn to thrive.</h3>
   </div>
+
+  {% if success %}
+    <p>Your submissions was successful.</p>
+
+  {% else %}
+    {% for message in form.invite.errors %}
+      <div class="flash">{{ message }}</div>
+    {% endfor %}
+
+    {% for message in form.email.errors %}
+      <div class"flash">{{ message }}</div>
+    {% endfor %}
+&nbsp;  
+  <strong><center>Enter your invitation code and email below :</center></strong>
+    <center><form action="{{ url_for('home') }}" method=post>
+      {{ form.hidden_tag() }}
+
+      {{ form.invite.label }}
+      {{ form.invite }}
+
+      {{ form.email.label }}
+      {{ form.email }}
+      
+      {{ form.submit }}
+    </form></center>
+&nbsp;
+&nbsp;
+  <div class="large">
+    <h3>What is ePays?</h3>
+    <strong><center>If accepted, the last place you look for financial freedom.</center></strong>
+  </div>
+  {% endif %}
 {% endblock %}

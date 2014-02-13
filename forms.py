@@ -13,4 +13,7 @@ class Unsubscribe(Form):
     email = TextField("Email", [validators.Required("You must enter your email address. "), validators.Email("You must enter a valid email address.")])
     submit = SubmitField("Unsubscribe")
 
-
+class Home(Form):
+    email = TextField("Email", [validators.Required("You must enter your email address. "), validators.Email("You must enter a valid email address.")])
+    invite = TextField("Invite", [validators.Required("You must enter your invite code. ")])
+    submit = SubmitField("Submit")

@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 from flask import Flask, render_template, request, flash
-from forms import ContactForm, Unsubscribe
+from forms import ContactForm, Unsubscribe, Home
 from flask_mail import Mail, Message
 import dataset
 
@@ -20,9 +20,24 @@ mail.init_app(app)
 
 db = dataset.connect('sqlite:///site.db')
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def home():
-    return render_template('home.html')
+    form = Home()
+    
+    if request.method == 'GET':
+        return render_template('home.html', form=form)
+    
+    if not form.validate():
+        flash('Form is not correctly filled out. ')
+        return render_template('home.html', form=form)
+
+    table = db['subscriber']
+
+    if table.find_one(invite=form.invite.data):
+        table.insert(dict(subscriber=form.email.data))
+        return 'Your email has been submitted for approval. Make sure you look out for an interview email from our staff.'
+
+    return 'Your invite code cannot be found. Please contact the person who provided it to you.'
 
 @app.route('/about')
 def about():

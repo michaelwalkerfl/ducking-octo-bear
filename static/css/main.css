@@ -38,7 +38,16 @@ div.jumbo {
     -webkit-border-radius: 6px;
        -moz-border-radius: 6px;
             border-radius: 6px;
-        }
+}
+
+div.large {
+    padding: 10px 0 30px 0;
+    background-color: #e6e6e6;
+    -webkit-border-radius: 6px;
+       -moz-border-radius: 6px;
+            border-radius: 6px;
+}
+
 h2 {
     font-size: 3em;
     margin-top: 40px;
@@ -74,6 +83,16 @@ h3 {
   text-decoration: none;
 }
 
+.invite {
+    padding: 10px 0 30px 0;    
+    background-color: #999;
+    height: 35px;
+    width: 100%;
+    opacity: .9;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 .footer {
   width: 940px;
   height: 50px;
@@ -104,14 +123,15 @@ form label {
 
 form input#name,
 form input#email,
-form input#subject {
-  width: 400px;
+form input#subject,
+form input#invite {
+  width: 300px;
   background-color: #fafafa;
   -webkit-border-radius: 3px;
      -moz-border-radius: 3px;
           border-radius: 3px;
 border: 1px solid #cccccc;
-padding: 5px;
+padding: 3px;
 font-size: 1.1em;
 }
 
@@ -132,7 +152,7 @@ form input#submit {
   -webkit-border-radius: 3px;
      -moz-border-radius: 3px;
           border-radius: 3px;
-border: 1px solid #d8d8d8;
+border: 0px solid #d8d8d8;
 padding: 10px;
 font-weight: bold;
 text-align: center;
