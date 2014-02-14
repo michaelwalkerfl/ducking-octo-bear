@@ -2,11 +2,13 @@
 from flask import Flask, render_template, request, flash
 from forms import ContactForm, Unsubscribe, Home
 from flask_mail import Mail, Message
+from flask_bootstrap import Bootstrap
 import dataset
 
 mail = Mail()
 
 app = Flask(__name__)
+Bootstrap(app)
 
 app.secret_key = '9sef7s98fe79se8f7s9e8f98fh7fgj98f'
 
